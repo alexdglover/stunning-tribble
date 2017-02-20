@@ -1,3 +1,5 @@
+
+<!DOCTYPE HTML>
 <html>
   <head>
   <title>Finance Chart</title>
@@ -11,7 +13,7 @@
   <body>
   <!-- A basic HTML form for getting custom inputs from users. All of these values will be sent as HTTP GET variables in the URL-->
   <!-- From there, the JavaScript will fetch these variables out of the URL-->
-  <form method="GET" action="html5canvas.html">
+  <form method="GET" action="">
     <label>Item 1 Label</label><input type="text" name="item1Label" /><br/>
     <label>Item 1 Revenues</label><input type="number" name="item1Rev" /><br/>
     <label>Item 1 COGS</label><input type="number" name="item1Cos" /><br/>
@@ -32,7 +34,7 @@
   // The function simply parses a GET variable out of the URL using REGEX and returns it
   function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
       vars[key] = value;
     });
     return vars;
@@ -94,9 +96,11 @@
     var expenseCats = new Array(operatingIncome,cos,opEx);
     var expenseCatsLabels = new Array('Operating Income','COGS','Operating Expense');
 
+
     // generic canvas variable setting
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
+
 
     // Generic variables for storing location information - these will be used, incremented, and re-used to act as a "ceiling"
     // for the bars in the chart
